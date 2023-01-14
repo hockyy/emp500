@@ -1,0 +1,40 @@
+#kana-jp {
+	font-size: 64px;
+}
+
+#kana-ro {
+	font-size: 48px;
+}
+
+/*#userInput {
+	font-size: 32px;
+}*/
+
+body {
+	padding: 1%;
+	max-width: 85%;
+	width: auto;
+	margin: auto;
+	background-color: rgb(30, 30, 30);
+    color: rgb(225, 225, 225);
+    font-family: "Verdana";
+}
+
+div, #circlefyer_jumbotron, #kanaTrainer, .alert {
+	background-color: rgb(50, 50, 50);
+    color: rgb(225, 225, 225);
+}
+
+#userInput {
+	background-color: rgb(80, 80, 80);
+    color: rgb(240, 240, 240);
+}
+
+.spacer {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}

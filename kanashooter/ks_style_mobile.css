@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(30, 30, 30);
+    color: rgb(225, 225, 225);
+    font-family: "Verdana";
+}
+
+.wrapper {
+    position: relative;
+    width: 720px;
+    height: 1280px;
+    border: 1px solid grey;
+ }
+
+.wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#kanaInput {
+    font-size: 24px;
+    background-color: rgb(50, 50, 50);
+    color: rgb(225, 225, 225);
+    border: 1px solid grey;
+}

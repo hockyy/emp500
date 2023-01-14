@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kana Training Game</title>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="ks_style_mobile.css">
+
+        <script src="../charsets/hiragana.js"></script>
+        <script src="../charsets/katakana.js"></script>
+
+        <script src="utils.js"></script>
+        <script src="vectorOps.js"></script>
+        <script src="drawing.js"></script>
+        
+        <script src="player.js"></script>
+        <script src="bullet.js"></script>
+        <script src="enemy.js"></script>
+
+        <script src="main.js"></script>
+    </head>
+    <body onload="main()">
+        <h1>Kana Training Game</h1>
+        <div class="wrapper" id="wrapper">
+            <canvas id="bgCanvas"></canvas>
+            <canvas id="canvas"></canvas>
+        </div>
+        <p>Enter your answer:</p><input type="text" id="kanaInput" tabindex="1"/>
+        <p>SOUND EFFECTS SOURCE: <a href="https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc">opengameart.org - Kenney.nl</a></p>
+    </body>
+</html>

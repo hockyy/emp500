@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Circlefyer</title>
+	<!-- Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Kana trainer css -->
+	<link rel="stylesheet" href="../style.css">
+	<!-- circlefyer js -->
+	<script src="circlefyer.js"></script>
+	<!-- fonts -->
+
+	<!-- font-family: 'DotGothic16', sans-serif;
+		font-family: 'Noto Sans JP', sans-serif;
+		font-family: 'RocknRoll One', sans-serif; -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP&family=RocknRoll+One&display=swap" rel="stylesheet">
+
+	
+</head>
+<body onload="loadApp()">
+	<h1>Circlefyer</h1>
+	<p>Press the <b>Share</b> button on Wordle, and then press <b>Paste & Circle me!</b> on this page to make your squares a bit more round.</p>
+	<hr>
+	<div class="jumbotron jumbotron-fluid w-auto p-3" id="circlefyer_jumbotron">
+		<hr class="my-4">
+		<div class="form-inline">
+				<textarea class="form-control" id="userInput" placeholder="Your wordle share data"></textarea>
+				<button class="btn btn-primary mb-2 mr-sm-2" id="pasteandcircleme" onclick="pasteAndCircleMe();">Paste & Circle me!</button>	
+				<button style="display: none;" id="circleme" class="btn btn-primary mb-2 mr-sm-2" onclick="circleMe();">Circle me!</button>	
+		</div>
+		<hr class="my-4">
+		<div id="result"></div>
+	</div>
+</body>
+</html>
