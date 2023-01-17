@@ -1,10 +1,10 @@
 // Class: Enemy
 // These are the enemies falling down
 class Enemy {
-    constructor(location, velocity, INCLUDE_YOUON) {
+    constructor(location, velocity, INCLUDE_YOUON, INCLUDE_ALL) {
         this.location = location;
         this.oldLocation = subtractVectors(location, velocity);
-        this.kana = pickRandomCharacter(CURRENT_CHARSET, INCLUDE_YOUON);
+        this.kana = pickRandomCharacter(CURRENT_CHARSET, INCLUDE_YOUON, INCLUDE_ALL);
         this.radius = 20;
         this.sides = 4;
 
@@ -31,13 +31,27 @@ class Enemy {
 }
 
 // Pick a random character from the given charset array
-function pickRandomCharacter(kana, INCLUDE_YOUON) {
-    for(var i = 1;;i++){
-        let tmp = kana[Math.floor(Math.random() * kana.length)];
-        if(!INCLUDE_YOUON && tmp.type === "youon") {
-            continue;
+function pickRandomCharacter(kana, INCLUDE_YOUON, INCLUDE_ALL) {
+    console.log(remainingCharacters.length)
+    if(remainingCharacters.length === 0) {
+        let resetSound = new Audio("zapThreeToneDown.mp3");
+            resetSound.loop = false;
+            resetSound.play();
+        SCORE += 100
+        const resetted = []
+        for(const kanaChar of kana){
+            if(!INCLUDE_YOUON && kanaChar.type === "youon") {
+                continue;
+            }
+            resetted.push(kanaChar)
         }
-        return tmp;
+        remainingCharacters = resetted;
+    }
+    for(var i = 1;;i++){
+        const index = Math.floor(Math.random() * remainingCharacters.length)
+        const selectedChar = remainingCharacters[index];
+        if(INCLUDE_ALL) remainingCharacters.splice(index, 1);
+        return selectedChar;
     }
     return "";
 }

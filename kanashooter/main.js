@@ -61,7 +61,7 @@ var BULLETS=[];
 // how many times is the simulation being done in a second (Hz)
 var SIMULATION_RATE = 30;
 // Score
-var SCORE = 0;
+var SCORE = -100;
 // Current combo
 var COMBO = 0;
 // the interval is stored in this variable
@@ -77,12 +77,15 @@ var ENABLE_AUTO_ERASE = false;
 var CURRENT_CHARSET = hiragana;
 // Is game over?
 var isGameOver = true;
+var remainingCharacters = [];
+
 
 //CHANGE HERE
 var INCLUDE_YOUON = true
-var SPARSITY = 50 // The lower the more dense
-var LB_SPEED = 2 // Lower bound for speed
-var UB_SPEED = 4
+var INCLUDE_ALL = true
+var SPARSITY = 30// The lower the more dense
+var LB_SPEED = 4 // Lower bound for speed
+var UB_SPEED = 6
 
 
 // simulation logic, most the action happens here
@@ -116,7 +119,7 @@ function startSimulation(c) {
             // Generate ENEMIES
             // Add new enemy every N iteration of the interval loop
             if (LOOPS > (SPARSITY*(1/(SCORE===0)?1:SCORE))) {
-                ENEMIES.push(new Enemy([rng(40, CANVAS_SIZE[0]-40),0], [0,rng(LB_SPEED, UB_SPEED)], INCLUDE_YOUON));
+                ENEMIES.push(new Enemy([rng(40, CANVAS_SIZE[0]-40),0], [0,rng(LB_SPEED, UB_SPEED)], INCLUDE_YOUON, INCLUDE_ALL));
                 LOOPS = 0;
             }
             LOOPS++;
@@ -212,11 +215,13 @@ function startSimulation(c) {
                 CURRENT_CHARSET = hiragana;
                 USERINPUT.value = "";
                 isGameOver = false;
+                remainingCharacters = []
             }               
             else if (USERINPUT.value.toLowerCase() === "k") {
                 CURRENT_CHARSET = katakana;
                 USERINPUT.value = "";
                 isGameOver = false;
+                remainingCharacters = []
             }
         }
     },1000/SIMULATION_RATE);

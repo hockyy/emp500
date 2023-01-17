@@ -13,17 +13,19 @@ function drawBullet(canvas, location, velocity) {
 // Draw score on canvas
 function drawScore(c, isGameOver=false) {
     let ctx = c.getContext("2d");
-    ctx.font = "32px Arial";
     if (isGameOver) {
+        ctx.font = "32px Arial";
         ctx.fillStyle = "red";
         ctx.textAlign = "center";
         ctx.fillText(`GAME OVER! Final score: ${SCORE}.`, CANVAS_SIZE[0]/2, CANVAS_SIZE[1]/2);
         ctx.fillText(`Write H for Hiragana, K for Katakana`, CANVAS_SIZE[0]/2, CANVAS_SIZE[1]/2 + 48);
     }
     else {
+        ctx.font = "20px Arial";
         ctx.fillStyle = "white";
         ctx.textAlign = "left";
-        ctx.fillText(`Score: ${SCORE}`, 0, 32);
+        ctx.fillText(`Score: ${SCORE}`, 0, 22);
+        ctx.fillText(`Bonus in: ${remainingCharacters.length}`, 0, 44);
     }
 }
 

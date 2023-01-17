@@ -1,4 +1,4 @@
-var katajp = [
+var katakana = [
   {
     "jp": "ア",
     "ro": "a",
