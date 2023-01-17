@@ -60,8 +60,9 @@ var ENEMIES=[];
 var BULLETS=[];
 // how many times is the simulation being done in a second (Hz)
 var SIMULATION_RATE = 30;
+var FULL_PACK_SCORE = 100;
 // Score
-var SCORE = -100;
+var SCORE = -FULL_PACK_SCORE;
 // Current combo
 var COMBO = 0;
 // the interval is stored in this variable
@@ -153,8 +154,9 @@ function startSimulation(c) {
                         isGameOver = true;
                         ENEMIES = [];
                         BULLETS = [];
-                        SCORE = 0;
+                        SCORE = -FULL_PACK_SCORE;
                         COMBO = 0;
+                        remainingCharacters = []
                         USERINPUT.value = "";
                     }
                 }
@@ -215,13 +217,11 @@ function startSimulation(c) {
                 CURRENT_CHARSET = hiragana;
                 USERINPUT.value = "";
                 isGameOver = false;
-                remainingCharacters = []
             }               
             else if (USERINPUT.value.toLowerCase() === "k") {
                 CURRENT_CHARSET = katakana;
                 USERINPUT.value = "";
                 isGameOver = false;
-                remainingCharacters = []
             }
         }
     },1000/SIMULATION_RATE);

@@ -34,10 +34,6 @@ class Enemy {
 function pickRandomCharacter(kana, INCLUDE_YOUON, INCLUDE_ALL) {
     console.log(remainingCharacters.length)
     if(remainingCharacters.length === 0) {
-        let resetSound = new Audio("zapThreeToneDown.mp3");
-            resetSound.loop = false;
-            resetSound.play();
-        SCORE += 100
         const resetted = []
         for(const kanaChar of kana){
             if(!INCLUDE_YOUON && kanaChar.type === "youon") {
@@ -45,7 +41,13 @@ function pickRandomCharacter(kana, INCLUDE_YOUON, INCLUDE_ALL) {
             }
             resetted.push(kanaChar)
         }
-        remainingCharacters = resetted;
+        if(remainingCharacters.length === 0) {
+            let resetSound = new Audio("zapThreeToneDown.mp3");
+            resetSound.loop = false;
+            resetSound.play();
+            remainingCharacters = resetted;
+            SCORE += FULL_PACK_SCORE
+        }
     }
     for(var i = 1;;i++){
         const index = Math.floor(Math.random() * remainingCharacters.length)
