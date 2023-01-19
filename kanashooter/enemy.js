@@ -15,7 +15,7 @@ class Enemy {
 
     draw(c) {
         let ctx = c.getContext("2d");
-        ctx.font = "35px Arial";
+        ctx.font = "40px Arial";
         ctx.fillStyle = "white";
         ctx.textAlign = "center";
         

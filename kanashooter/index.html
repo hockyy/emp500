@@ -8,6 +8,8 @@
 
         <script src="../charsets/hiragana.js"></script>
         <script src="../charsets/katakana.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/maxshuty/accessible-web-components@latest/dist/simpleRange.min.js"></script>
+
 
         <script src="utils.js"></script>
         <script src="vectorOps.js"></script>
@@ -26,7 +28,25 @@
             <canvas id="canvas"></canvas>
         </div>
         <!-- <p>Enter your answer:</p> -->
-        <input type="text" id="kanaInput" tabindex="1"/>
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
+            <input type="text" id="kanaInput" tabindex="1" />
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <input type="range" id="density" 
+                    min="0" max="100" value="90" onchange="updateDensity(this.value)" oninput="updateDensity(this.value)"/>
+                <div id="densityValue"> </div>
+            </div>
+            <div style="width: 50%;">
+              <range-selector
+                id="speed"
+                min-label="Minimum"
+                max-label="Maximum"
+                min-range="1"
+                max-range="10"
+                number-of-legend-items-to-show="6"
+              />
+            </div>
+        </div>
+        
         <!-- <p>SOUND EFFECTS SOURCE: <a href="https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc">opengameart.org - Kenney.nl</a></p> -->
     </body>
 </html>

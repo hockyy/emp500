@@ -14,6 +14,15 @@ function main() {
     }
     
     // init text input
+    SPEED = document.getElementById("speed");
+    window.addEventListener('range-changed', (e) => {
+        LB_SPEED = e.detail.minRangeValue;
+        UB_SPEED = e.detail.maxRangeValue;
+    });
+    // init text input
+    DENSITY = document.getElementById("densityValue");
+    DENSITY.innerText = document.getElementById("density").value
+    // init text input
     USERINPUT = document.getElementById("kanaInput");
     // initialize main canvas
     let c = initCanvas("canvas", CANVAS_SIZE[0], CANVAS_SIZE[1]);
@@ -70,6 +79,8 @@ var INTERVAL = null;
 
 // loops performed
 let LOOPS = 0;
+var DENSITY = null;
+var SPEED = null;
 // user input textbox
 var USERINPUT = null;
 // Erase textbox text automatically
@@ -85,9 +96,13 @@ var remainingCharacters = [];
 var INCLUDE_YOUON = true
 var INCLUDE_ALL = true
 var SPARSITY = 30// The lower the more dense
-var LB_SPEED = 4 // Lower bound for speed
-var UB_SPEED = 6
+var LB_SPEED = 3 // Lower bound for speed
+var UB_SPEED = 5
 
+function updateDensity(val){
+    SPARSITY = val;
+    DENSITY.innerText = val
+}
 
 // simulation logic, most the action happens here
 function startSimulation(c) {
