@@ -93,7 +93,7 @@ var remainingCharacters = [];
 
 
 //CHANGE HERE
-var INCLUDE_YOUON = true
+var INCLUDE_YOUON = false
 var INCLUDE_ALL = true
 var SPARSITY = 30// The lower the more dense
 var LB_SPEED = 3 // Lower bound for speed
